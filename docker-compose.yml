@@ -1,0 +1,16 @@
+version: "3.2"
+services:
+  nodejs:
+    build: 
+      context: .
+    image: waqaralipk/authentication-microservice
+    environment:
+      - MYSQL_HOST= 'cloud-computing-project-course.ciaci7b1aaha.us-east-1.rds.amazonaws.com';
+      - MYSQL_USER=moeuser
+      - MYSQL_PASS=cloudcomputing
+      - MYSQL_DB=cloud-computing-project
+    volumes:
+      - ./www/:/var/www/html/
+    ports:
+      - "30004:30004"
+    container_name: moe-authentication-microservice
